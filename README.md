@@ -1,0 +1,102 @@
+# TP4 : Sockets en mode non-connecté UDP
+
+## Activité : Echange des datagrammes entre C/S en mode non-connecté Service de chat C/S avec UDP
+
+- **Université :** Faculté des Sciences de Sfax
+- **Département :** Informatique et des Communications
+- **Année universitaire :** 2026-2027
+- **Auditoire :** LSI 3
+- **Matière :** Développement d'applications réparties
+- **Responsable du cours :** Amal ABID
+- **Étudiante :** Eya Makni
+
+---
+
+## 1. Présentation du TP
+
+Ce TP consiste à développer une application de communication
+Client/Serveur utilisant les sockets UDP en Java.
+
+L'application permet l'échange de messages texte entre un
+ou plusieurs clients à travers un serveur UDP.
+
+## 2. Objectifs
+
+- Maîtriser l'utilisation de DatagramSocket et DatagramPacket.
+- Comprendre la communication en mode non-connecté UDP.
+- Envoyer et recevoir des datagrammes.
+- Développer un chat Client/Serveur.
+- Gérer plusieurs clients simultanément avec les Threads.
+- Diffuser les messages aux autres clients.
+
+
+## 3. Structure du projet
+
+![image1](captures/image1.png)
+
+
+## 4. Étape 2 : Chat unidirectionnel
+
+Dans cette étape, J'ai développé un client UDP
+qui permet à l'utilisateur de saisir son nom et d'envoyer
+des messages au serveur sur le port 1234.
+
+![image2](captures/image2.png)
+
+Le serveur reçoit les datagrammes et affiche :
+- L'adresse IP de l'expéditeur.
+- Le port de l'expéditeur.
+- Le contenu du message.
+
+![image3](captures/image3.png)
+
+## 5. Étape 3 : Chat bidirectionnel et plusieurs clients
+
+Dans cette étape, j'ai amélioré l'application afin
+de permettre la communication entre plusieurs clients.
+
+### Fonctionnement du serveur
+
+- Réception des messages UDP.
+- Enregistrement des adresses des clients dans un HashSet.
+- Éviter les doublons.
+- Diffusion des messages à tous les autres clients,
+  sauf à l'expéditeur.
+
+### Fonctionnement du client
+
+Le client utilise deux traitements simultanés :
+
+- Un Thread principal pour envoyer les messages.
+- Un Thread secondaire pour recevoir les messages.
+
+Cette organisation permet une communication bidirectionnelle
+entre plusieurs clients en temps réel.
+
+### Capture d'écran du serveur
+
+![image4](captures/image4.png)
+
+### Capture d'écran du client1
+
+![image5](captures/image5.png)
+
+### Capture d'écran du client2
+
+![image6](captures/image6.png)
+
+## 6. Synthèse
+
+Ce TP m'a permis de comprendre le fonctionnement
+des sockets UDP en Java et la communication en mode
+non-connecté.
+
+J'ai appris à envoyer et recevoir des datagrammes
+avec DatagramSocket et DatagramPacket.
+
+J'ai également développé une application de chat
+permettant à plusieurs clients de communiquer à travers
+un serveur UDP.
+
+Enfin, l'utilisation des Threads m' a permis de gérer
+simultanément l'envoi et la réception des messages.
